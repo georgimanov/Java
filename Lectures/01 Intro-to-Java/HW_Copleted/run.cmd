@@ -1,0 +1,1 @@
+java -jar D:\SoftUni\Java\Projects\DeckOfCardsPDF.jar

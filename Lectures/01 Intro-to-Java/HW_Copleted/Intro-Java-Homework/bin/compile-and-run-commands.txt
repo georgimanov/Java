@@ -1,0 +1,7 @@
+In Notepad I created a file SumTwoNumbers and saved it as *.java file.
+Then I created the *.class file with :
+
+C:\Program Files\Java\jdk1.8.0_05\bin\javac D:\SoftUni\Java\Projects\Intro-Java-Homework\bin\SumTwoNumbers.java
+
+After that I run the *.class with:
+C:\java D:\SoftUni\Java\Projects\Intro-Java-Homework\bin\SumTwoNumbers
