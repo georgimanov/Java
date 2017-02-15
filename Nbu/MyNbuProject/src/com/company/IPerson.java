@@ -4,7 +4,9 @@ import java.util.Date;
 
 public interface IPerson {
 
-    String GetName();
+    String getName();
 
-    Date GetBirthday();
+    Date getBirthday();
+
+    String getBirthdayString();
 }

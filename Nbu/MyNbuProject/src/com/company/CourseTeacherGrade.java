@@ -18,11 +18,11 @@ public class CourseTeacherGrade {
     }
 
     public String getCourseName(){
-        return this._course.GetName();
+        return this._course.getName();
     }
 
     public String getTeacherName(){
-        return this._teacher.GetName();
+        return this._teacher.getName();
     }
 
     public Integer getGrade(){
@@ -35,10 +35,10 @@ public class CourseTeacherGrade {
 
     public static Comparator<CourseTeacherGrade> CourseTeacherComparator = new Comparator<CourseTeacherGrade>() {
         public int compare(CourseTeacherGrade p1, CourseTeacherGrade p2) {
-            String teacherName1 = p1._teacher.GetName();
-            String teacherName2 = p2._teacher.GetName();
-            String courseName1 = p1._course.GetName();
-            String courseName2 = p2._course.GetName();
+            String teacherName1 = p1._teacher.getName();
+            String teacherName2 = p2._teacher.getName();
+            String courseName1 = p1._course.getName();
+            String courseName2 = p2._course.getName();
 
             return (teacherName1.compareTo(teacherName2)) & (courseName1.compareTo(courseName2));
         }

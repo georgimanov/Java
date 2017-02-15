@@ -45,11 +45,12 @@ public class DataManager {
     }
 
     private Person getPesonFromLine(String line) {
-        String[] parts = line.split("|");
+        String[] parts = line.split("\\|");
         String occupation = parts[0];
         String name = parts[1];
         String birth = parts[2];
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        SimpleDateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT);
         try {
             Date birthDay = format.parse(birth);
             if (occupation.equalsIgnoreCase("Teacher")) {

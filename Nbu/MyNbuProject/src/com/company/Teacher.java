@@ -11,7 +11,7 @@ public class Teacher extends Person {
         super(name, birthday);
     }
 
-    public void AddCourse(Course course){
+    public void addCourse(Course course){
         this.courses.add(course);
     }
 
@@ -20,12 +20,14 @@ public class Teacher extends Person {
         String base = super.toString();
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Courses: \n");
-        for(Iterator<Course> i = this.courses.iterator(); i.hasNext(); ) {
-            Course course = i.next();
-            stringBuilder.append(" - " + course.GetName());
-            Integer studentsCount = course.GetStudentsCount();
-            stringBuilder.append(" | Students count: " + studentsCount  + "\n" );
+        if(this.courses.size() > 0){
+            stringBuilder.append("\nCourses: \n");
+            for(Iterator<Course> i = this.courses.iterator(); i.hasNext(); ) {
+                Course course = i.next();
+                stringBuilder.append(" - " + course.getName());
+                Integer studentsCount = course.getStudentsCount();
+                stringBuilder.append(" | Students count: " + studentsCount  + "\n" );
+            }
         }
 
         return base + stringBuilder.toString();

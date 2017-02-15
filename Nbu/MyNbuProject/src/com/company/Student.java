@@ -31,13 +31,14 @@ public class Student extends Person {
         String base = super.toString();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(base);
-        stringBuilder.append("\n");
-        stringBuilder.append("Courses:\n");
-        for (CourseTeacherGrade courseTeacherGrade : this.courseTeacherGrades){
-            String courseName = courseTeacherGrade.getCourseName();
-            Integer grade = courseTeacherGrade.getGrade();
-            String teacherName = courseTeacherGrade.getTeacherName();
-            stringBuilder.append(" - Course: " + courseName + " | Teacher: " + teacherName + " | Grade: " + (grade == null ? " unassigned " : grade));
+        if(this.courseTeacherGrades.size() > 0){
+            stringBuilder.append("\nCourses:\n");
+            for (CourseTeacherGrade courseTeacherGrade : this.courseTeacherGrades){
+                String courseName = courseTeacherGrade.getCourseName();
+                Integer grade = courseTeacherGrade.getGrade();
+                String teacherName = courseTeacherGrade.getTeacherName();
+                stringBuilder.append(" - Course: " + courseName + " | Teacher: " + teacherName + " | Grade: " + (grade == null ? " unassigned " : grade));
+            }
         }
 
         return stringBuilder.toString();

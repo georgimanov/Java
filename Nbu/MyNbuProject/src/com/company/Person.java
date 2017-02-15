@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Comparator;
 
@@ -14,10 +14,10 @@ public class Person implements IPerson{
 
     public Person(String name, Date birthday){
         SetName(name);
-        SetBirthday(birthday);
+        setBirthday(birthday);
     }
 
-    public String GetName(){
+    public String getName(){
         return this.name;
     }
 
@@ -25,11 +25,17 @@ public class Person implements IPerson{
         this.name = name;
     }
 
-    public Date GetBirthday(){
+    public Date getBirthday(){
+
         return this.birthday;
     }
 
-    void SetBirthday(Date birthday){
+    public String getBirthdayString(){
+        SimpleDateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT);
+        return format.format(this.birthday);
+    }
+
+    void setBirthday(Date birthday){
         this.birthday = birthday;
     }
 
@@ -38,8 +44,8 @@ public class Person implements IPerson{
     public static Comparator<Person> PersonNameComparator = new Comparator<Person>() {
 
         public int compare(Person p1, Person p2) {
-            String personName1 = p1.GetName().toUpperCase();
-            String personName2 = p2.GetName().toUpperCase();
+            String personName1 = p1.getName().toUpperCase();
+            String personName2 = p2.getName().toUpperCase();
 
             //ascending order
             return personName1.compareTo(personName2);
@@ -53,8 +59,8 @@ public class Person implements IPerson{
 
         public int compare(Person p1, Person p2) {
 
-            Date birthday1 = p1.GetBirthday();
-            Date birthday2 = p2.GetBirthday();
+            Date birthday1 = p1.getBirthday();
+            Date birthday2 = p2.getBirthday();
 
 	   /*For ascending order*/
             // return birthday1.compareTo(birthday2);
@@ -69,6 +75,6 @@ public class Person implements IPerson{
         String role = this.getClass().getName();
         String roleResult = role.substring(role.length() - 7);
 
-        return String.format("%s|%s|%s", roleResult, GetName(), GetBirthday());
+        return String.format("%s|%s|%s", roleResult, getName(), getBirthdayString());
     }
 }
