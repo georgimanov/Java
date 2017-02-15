@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Course {
     private String name = Constants.EMPTY_STRING;
@@ -9,21 +8,51 @@ public class Course {
     private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
     private ArrayList<Student> students = new ArrayList<Student>();
 
+    private Map<Student, Integer> studentGrades = new HashMap<Student, Integer>();
+
     public Course(String name){
         this.name = name;
     }
 
-    void AddStudent(Student student){
+    public ArrayList<String> GetPeople(){
+        ArrayList<String> peopleList = new ArrayList<String>();
+        for(IPerson person: this.people){
+            String personLine = GetPersonToPrint(person);
+            peopleList.add(personLine);
+        }
+        return peopleList;
+    }
+
+    private String GetPersonToPrint(IPerson person){
+        String role = person.getClass().getName();
+        String roleResult = role.substring(role.length() - 7);
+
+        return String.format("%s|%s|%s", roleResult, person.GetName(), person.GetBirthday());
+    }
+
+    public void AddStudent(Student student){
         this.people.add(student);
         this.students.add(student);
     }
 
-    void AddTeacher(Teacher teacher){
+    public void AddTeacher(Teacher teacher){
         this.people.add(teacher);
         this.teachers.add(teacher);
     }
 
-    void PrintPeopleSortedAlphabetically(){
+    public void AddGradeToStudent(Student student, Integer grade){
+        this.studentGrades.put(student, grade);
+    }
+
+    public Integer GetGradeForStudent(Student student){
+        return this.studentGrades.get(student);
+    }
+
+    public Integer GetStudentsCount(){
+        return this.students.size();
+    }
+
+    public void PrintPeopleSortedAlphabetically(){
         Collections.sort(this.people, Person.PersonNameComparator);
 
         System.out.println(this + " - People sorted by name");
@@ -32,7 +61,7 @@ public class Course {
         }
     }
 
-    void PrintPeopleSortedByAge(){
+    public void PrintPeopleSortedByAge(){
         Collections.sort(this.people, Person.PersonAgeComparator);
 
         System.out.println(this + " - People sorted by age");
@@ -41,16 +70,32 @@ public class Course {
         }
     }
 
-    String GetName(){
+    public String GetName(){
         return this.name;
     }
 
-    void SetName(String name){
+    public void SetName(String name){
         this.name = name;
+    }
+
+    public void PrintDetailedCourseInfo(){
+        Collections.sort(this.students, Person.PersonNameComparator);
+        System.out.println(this.GetName());
+        for(Student student: this.students){
+            System.out.println(student);
+        }
     }
 
     @Override
     public String toString() {
-        return String.format("%s", GetName());
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format(" - %s \n", this.GetName()));
+        stringBuilder.append(" -- Teachers: \n");
+        for(Iterator<Teacher> i = this.teachers.iterator(); i.hasNext(); ) {
+            Teacher teacher = i.next();
+            stringBuilder.append(" --- " + teacher.GetName() + "\n");
+        }
+
+        return stringBuilder.toString();
     }
 }

@@ -1,0 +1,8 @@
+Student|a|Sun Nov 30 00:00:00 EET 1986
+Student|c|Mon Nov 30 00:00:00 EET 1987
+Student|d|Sat Nov 30 00:00:00 EET 1985
+Student|b|Tue Dec 30 00:00:00 EET 1986
+Student|e|Tue Nov 30 00:00:00 EET 1965
+Teacher|a|Fri Nov 30 00:00:00 EET 1962
+Teacher|b|Mon Dec 30 00:00:00 EET 1963
+Teacher|c|Thu Nov 30 00:00:00 EET 1961

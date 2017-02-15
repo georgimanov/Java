@@ -1,9 +1,10 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Comparator;
 
-public class Person {
+public class Person implements IPerson{
     private String name = Constants.EMPTY_STRING;
     private Date birthday = new Date();
 
@@ -16,7 +17,7 @@ public class Person {
         SetBirthday(birthday);
     }
 
-    String GetName(){
+    public String GetName(){
         return this.name;
     }
 
@@ -24,7 +25,7 @@ public class Person {
         this.name = name;
     }
 
-    Date GetBirthday(){
+    public Date GetBirthday(){
         return this.birthday;
     }
 
@@ -67,6 +68,7 @@ public class Person {
     public String toString() {
         String role = this.getClass().getName();
         String roleResult = role.substring(role.length() - 7);
-        return String.format(" %s | %15s | %s ", GetName(), GetBirthday(), roleResult);
+
+        return String.format("%s|%s|%s", roleResult, GetName(), GetBirthday());
     }
 }

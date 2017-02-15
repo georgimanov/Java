@@ -1,7 +1,9 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Main {
@@ -46,12 +48,40 @@ public class Main {
             course.AddTeacher(teacher2);
             course.AddTeacher(teacher3);
 
-            course.PrintPeopleSortedAlphabetically();
+            Course course1 = new Course("JavaScript");
 
-            course.PrintPeopleSortedByAge();
+            student1.subscribeCourse(course1, teacher1);
+            System.out.println(student1);
+
+            student1.subscribeGrade(course1, teacher1, 100);
+            System.out.println(student1);
+
+            course.AddGradeToStudent(student1, 5);
+
+            teacher1.AddCourse(course);
+            teacher1.AddCourse(course1);
+
+            //course.PrintPeopleSortedAlphabetically();
+            //course.PrintPeopleSortedByAge();
+            //System.out.print(teacher1);
+            //System.out.print(student1);
+
+            DataManager dataManager = new DataManager();
+            try{
+                dataManager.savePeopleCollectionToFile("test.txt", course.GetPeople());
+            }catch (FileNotFoundException e){
+                System.err.println("FileNotFoundException: " + e.getMessage());
+            }
+            ArrayList<Person> input = dataManager.loadPeopleCollectionFromFile(Constants.FILE_PATH);
+
+            for (Person person : input){
+                System.out.println(person.GetName());
+            }
+
+            course.PrintDetailedCourseInfo();
         }
         catch (ParseException e) {
+            System.err.println("ParseException: " + e.getMessage());
         }
-
     }
 }
