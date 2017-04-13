@@ -9,4 +9,5 @@ public class Constants {
     public static final String KINDERGARDER = "Kidnergarden";
     public static final String STUDENT = "Student";
     public static final String TEACHER = "Teacher";
+    public static final String BASE_DIR = "schools";
 }
