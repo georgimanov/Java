@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Institution type="Kidnergarden" date="2006-11-20">
+    <Person>
+        <name>Pan</name>
+        <role>Teacher</role>
+    </Person>
+    <Person>
+        <name>Lisa</name>
+        <role>Student</role>
+    </Person>
+
+    <Person>
+        <name>Lisa M</name>
+        <role>Teacher</role>
+    </Person>
+</Institution>

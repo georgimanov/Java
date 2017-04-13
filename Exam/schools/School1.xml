@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Institution type="School" date="1986-11-30">
+    <Person>
+        <name>Pan</name>
+        <role>Teacher</role>
+    </Person>
+    <Person>
+        <name>Lisa</name>
+        <role>Student</role>
+    </Person>
+</Institution>

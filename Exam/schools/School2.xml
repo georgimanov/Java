@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Institution type="School" date="2001-11-1">
+    <Person>
+        <name>Tosho</name>
+        <role>Teacher</role>
+    </Person>
+    <Person>
+        <name>Tisho</name>
+        <role>Student</role>
+    </Person>
+    <Person>
+        <name>Pesho</name>
+        <role>Student</role>
+    </Person>
+    <Person>
+        <name>Lisa</name>
+        <role>Student</role>
+    </Person>
+</Institution>

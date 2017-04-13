@@ -1,0 +1,3 @@
+Name: schools/Kindergarden1.xml,Students count: 1, Teachers count: 2
+Name: schools/School2.xml,Students count: 3, Teachers count: 1
+Name: schools/School1.xml,Students count: 1, Teachers count: 1
