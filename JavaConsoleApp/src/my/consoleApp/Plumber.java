@@ -1,5 +1,7 @@
 package my.consoleApp;
 
+import my.consoleApp.Systems.SystemA;
+
 /******************************************************************************************************************
  * File:Plumber.java
  * Course: 17655
@@ -24,13 +26,17 @@ public class Plumber
 {
     public static void main(String argv[])
     {
+        SystemA systemA = new SystemA("dataSetsIn/FlightData.dat", "dataSetsOut/OutputA.dat");
+        systemA.start();
+
         /****************************************************************************
          * Here we instantiate three filters.
          ****************************************************************************/
 
-        SourceFilter sourceFilter = new SourceFilter();
-        MiddleFilter middleFilter = new MiddleFilter();
-        SinkFilter sinkFilter = new SinkFilter();
+        //SourceFilter sourceFilter = new SourceFilter();
+        //MiddleFilter middleFilter = new MiddleFilter();
+        //SinkFilter sinkFilterFirst = new SinkFilter();
+        //SinkFilter sinkFilterSecond = new SinkFilter();
 
         /****************************************************************************
          * Here we connect the filters starting with the sink filter (Filter 1) which
@@ -38,16 +44,18 @@ public class Plumber
          * source filter (Filter3).
          ****************************************************************************/
 
-        sinkFilter.Connect(middleFilter); // This esstially says, "connect Filter3 input port to Filter2 output port
-        middleFilter.Connect(sourceFilter); // This esstially says, "connect Filter2 intput port to sourceFilter output port
+        //sinkFilterFirst.Connect(middleFilter); // This esstially says, "connect Filter3 input port to Filter2 output port
+        //sinkFilterSecond.Connect(middleFilter);
+        //middleFilter.Connect(sourceFilter); // This esstially says, "connect Filter2 intput port to sourceFilter output port
 
         /****************************************************************************
          * Here we start the filters up. All-in-all,... its really kind of boring.
          ****************************************************************************/
 
-        sourceFilter.start();
-        middleFilter.start();
-        sinkFilter.start();
+        //sourceFilter.start();
+        //middleFilter.start();
+        //sinkFilterFirst.start();
+        //sinkFilterSecond.start();
 
     } // main
 
