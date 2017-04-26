@@ -26,7 +26,11 @@ public class Plumber
 {
     public static void main(String argv[])
     {
-        SystemA systemA = new SystemA("dataSetsIn/FlightData.dat", "dataSetsOut/OutputA.dat");
+        String path1 = "dataSetsIn/FlightData.dat";
+        String path2 = "dataSetsIn/SubSetA.dat";
+        String path3 = "dataSetsIn/SubSetB.dat";
+
+        SystemA systemA = new SystemA(path1, "dataSetsOut/OutputA.dat");
         systemA.start();
 
         /****************************************************************************
